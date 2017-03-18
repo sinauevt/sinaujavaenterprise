@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 15, 2013 2:53:22 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.simpleprogrammer.User" table="USERS">
+		<id name="id" type="int">
+			<column name="ID" />
+			<generator class="identity" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="NAME" />
+		</property>
+
+		<many-to-one name="proteinData" class="com.simpleprogrammer.ProteinData"
+			column="PROTEIN_DATA_ID" cascade="save-update" unique="true" />
+
+		<list name="history" table="USER_HISTORY" inverse="true" cascade="save-update">
+			<key column="USER_ID" />
+			<list-index column="POSITION" />
+			<one-to-many class="com.simpleprogrammer.UserHistory" />
+		</list>
+		<set name="goalAlerts" table="USER_GOALALERT" cascade="save-update">
+			<key column="USER_ID" />
+			<many-to-many class="com.simpleprogrammer.GoalAlert"
+				column="GOALALERT_ID" />
+		</set>
+
+
+	</class>
+</hibernate-mapping>

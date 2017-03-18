@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.sinau.belajarhibernate.User" table="user">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="name"/>
+        </property>
+        <component name="userData">
+	        <property name="total" type="int">
+	            <column name="total"/>
+	        </property>
+	        <property name="goal" type="int">
+	            <column name="goal"/>
+	        </property>
+        </component>
+    </class>
+</hibernate-mapping>
