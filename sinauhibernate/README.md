@@ -29,6 +29,10 @@ Select semua file ".jar" yang terdapat didalam folder "lib" kemudian klik kanan 
 
 Buka MySQL (bisa menggunakan console, phpmyadmin atau mysql workbench). Buat database / schema baru dengan nama "cobahibernate".
 
+```SQL
+CREATE DATABASE cobahibernate;
+```
+
 Buat file baru didalam folder "src" dan beri nama "hibernate.cfg.xml". File ini adalah tempat kita definisikan semua konfigurasi database dan mapping. Isi file tersebut dengan kode dibawah ini.
 
 ```xml
